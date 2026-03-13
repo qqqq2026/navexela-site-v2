@@ -81,7 +81,7 @@ input:focus,textarea:focus{border-color:rgba(33,150,243,.8);box-shadow:0 0 0 4px
 
 .footer{background:#0c1628;color:#fff;padding:26px 0}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.footer img{height:26px;width:auto;opacity:.9}
+.footer img{height:34px;width:auto;opacity:1}
 
 @media (max-width: 920px){
   .hero-inner{grid-template-columns:1fr;}
