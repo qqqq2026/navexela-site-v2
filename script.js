@@ -54,7 +54,7 @@
     const body = encodeURIComponent(
       `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company||''}\n\nMessage:\n${payload.message}`
     );
-    window.location.href = `mailto:hello@navexela.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:d.murray@navixella.com?subject=${subject}&body=${body}`;
   }
 
   if (form){
