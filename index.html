@@ -25,7 +25,7 @@
         <a href="#services">Services</a>
         <a href="#proof">Proof</a>
         <a href="#team">Team</a>
-        <a class="btn btn-primary" href="#contact">Free consultation</a>
+        <a class="btn btn-primary" href="#book" data-booking>Book a call</a>
       </nav>
     </div>
   </header>
@@ -41,7 +41,7 @@
             and operational efficiency. Clear plan. Weekly momentum. Measurable outcomes.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-dark" href="#contact">Book free consultation →</a>
+            <a class="btn btn-dark" href="#book" data-booking>Book a call →</a>
             <a class="btn btn-ghost" href="#services">See services</a>
           </div>
           <div class="hero-bullets">
@@ -54,17 +54,17 @@
           <div class="glass">
             <div class="kpi">
               <div class="kpi-num">£132M</div>
-              <div class="kpi-label">OPEX saved (example)</div>
+              <div class="kpi-label">OPEX saved</div>
             </div>
             <div class="kpi">
               <div class="kpi-num">9 mo</div>
-              <div class="kpi-label">Backlog cleared (example)</div>
+              <div class="kpi-label">Backlog cleared</div>
             </div>
             <div class="kpi">
               <div class="kpi-num">11 mo</div>
-              <div class="kpi-label">Perf system roll‑out (example)</div>
+              <div class="kpi-label">Performance system roll‑out</div>
             </div>
-            <div class="muted small">(Replace “example” with your real case study labels.)</div>
+            <div class="muted small">Confidential metrics shown; details available on request.</div>
           </div>
         </div>
       </div>
@@ -165,11 +165,27 @@
       </div>
     </section>
 
+    <section id="book" class="section alt">
+      <div class="container two-col">
+        <div>
+          <div class="eyebrow">Book a call</div>
+          <h2>One step: pick a slot on our calendar</h2>
+          <p class="muted">Fastest path. If you prefer, you can still send a message below.</p>
+          <div class="muted small">To enable booking: create a Google Calendar “Appointment schedule” and send me the public booking link.</div>
+        </div>
+        <div class="card">
+          <div id="bookingWrap" class="muted small">Booking link not set yet.</div>
+          <iframe id="bookingFrame" title="Booking" style="display:none;width:100%;height:620px;border:0;border-radius:14px;"></iframe>
+          <a id="bookingOpen" class="btn btn-primary" href="#" target="_blank" rel="noopener" style="display:none;margin-top:12px">Open booking page →</a>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section contact">
       <div class="container two-col">
         <div>
           <div class="eyebrow">Get in touch</div>
-          <h2>Book your free consultation</h2>
+          <h2>Prefer email? Send a message</h2>
           <p class="muted">No sales pitch. We’ll define the highest-leverage 90‑day plan together.</p>
           <div class="contact-cards">
             <div class="mini"><div class="muted">Email</div><b>hello@navexela.com</b></div>
@@ -182,7 +198,7 @@
             <label>Email<input name="email" type="email" required /></label>
             <label>Company<input name="company" /></label>
             <label>Message<textarea name="message" rows="4" placeholder="What are you trying to improve?" required></textarea></label>
-            <button class="btn btn-primary" type="submit">Request consultation →</button>
+            <button class="btn btn-primary" type="submit">Send message →</button>
             <div id="formStatus" class="muted small" style="margin-top:10px"></div>
           </form>
           <div class="muted small" style="margin-top:12px">

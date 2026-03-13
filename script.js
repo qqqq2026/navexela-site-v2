@@ -7,6 +7,30 @@
   // It should accept POST JSON and write to a Google Sheet.
   const LEAD_WEBHOOK_URL = window.LEAD_WEBHOOK_URL || "";
 
+  // Booking (one-step CTA)
+  // Set BOOKING_URL to a Google Calendar Appointment Schedule link.
+  const BOOKING_URL = window.BOOKING_URL || "";
+  const bookingWrap = document.getElementById('bookingWrap');
+  const bookingFrame = document.getElementById('bookingFrame');
+  const bookingOpen = document.getElementById('bookingOpen');
+
+  if (BOOKING_URL && bookingFrame && bookingWrap && bookingOpen) {
+    bookingFrame.src = BOOKING_URL;
+    bookingFrame.style.display = 'block';
+    bookingOpen.href = BOOKING_URL;
+    bookingOpen.style.display = 'inline-flex';
+    bookingWrap.style.display = 'none';
+  }
+
+  document.querySelectorAll('[data-booking]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      if (BOOKING_URL) {
+        e.preventDefault();
+        window.open(BOOKING_URL, '_blank', 'noopener');
+      }
+    });
+  });
+
   const form = document.getElementById('leadForm');
   const statusEl = document.getElementById('formStatus');
 
