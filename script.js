@@ -31,6 +31,58 @@
     });
   });
 
+  // Scroll reveal
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  if (revealEls.length) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); }),
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // Scrollspy (active nav)
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const linkToSection = navLinks
+    .map(a => [a, document.querySelector(a.getAttribute('href'))])
+    .filter(([, s]) => s);
+
+  if (linkToSection.length) {
+    const so = new IntersectionObserver((entries) => {
+      // pick the most visible section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => (b.intersectionRatio||0) - (a.intersectionRatio||0))[0];
+      if (!visible) return;
+      navLinks.forEach(a => a.classList.remove('active'));
+      const match = linkToSection.find(([, s]) => s === visible.target);
+      if (match) match[0].classList.add('active');
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: [0.05, 0.15, 0.3] });
+
+    linkToSection.forEach(([, s]) => so.observe(s));
+  }
+
+  // Hero micro-interaction (subtle parallax on desktop)
+  const heroPhoto = document.querySelector('.hero-photo');
+  const heroWrap = document.querySelector('.hero-photo-wrap');
+  if (heroPhoto && heroWrap) {
+    let raf = null;
+    const onMove = (ev) => {
+      const r = heroWrap.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width - 0.5;
+      const y = (ev.clientY - r.top) / r.height - 0.5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        heroPhoto.style.transform = `translate(${x*10}px, ${y*10}px) scale(1.06)`;
+      });
+    };
+    const onLeave = () => {
+      heroPhoto.style.transform = 'scale(1.03)';
+    };
+    heroWrap.addEventListener('mousemove', onMove);
+    heroWrap.addEventListener('mouseleave', onLeave);
+  }
+
   const form = document.getElementById('leadForm');
   const statusEl = document.getElementById('formStatus');
 
